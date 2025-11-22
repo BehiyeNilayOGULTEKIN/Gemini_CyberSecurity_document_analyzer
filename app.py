@@ -1,7 +1,8 @@
 import streamlit as st
 from pathlib import Path
 import google.generativeai as geneai
-# import os # Ortam değişkenlerini yüklemek için gerekli
+import os
+# Ortam değişkenlerini yüklemek için gerekli
 # import google.generativeai as geneai
 # # from google.colab import userdata # Render'da çalışmaz, kaldırıldı.
 
