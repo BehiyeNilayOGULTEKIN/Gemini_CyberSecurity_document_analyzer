@@ -2,20 +2,7 @@ import streamlit as st
 from pathlib import Path
 import google.generativeai as geneai
 import os
-# Ortam değişkenlerini yüklemek için gerekli
-# import google.generativeai as geneai
-# # from google.colab import userdata # Render'da çalışmaz, kaldırıldı.
-
-# # Configuration and setup
-# # API anahtarını ortam değişkeninden (Render'da ayarlayacağımız) yükle
-# api_key = os.getenv('GOOGLE_API_KEY')
-
-# if api_key is None:
-#     # Render'da anahtar yoksa kullanıcıya hata mesajı gösterir
-#     st.error("GOOGLE_API_KEY bulunamadı. Lütfen Render ortam değişkenlerini kontrol edin.")
-#     st.stop()
-
-# geneai.configure(api_key=api_key)
+# Important for enrivoment changes
 
 # Configuration and setup
 api_key = os.getenv('GOOGLE_API_KEY')
