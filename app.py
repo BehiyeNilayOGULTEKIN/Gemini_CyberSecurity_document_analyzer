@@ -1,17 +1,26 @@
 import streamlit as st
-import os # Ortam değişkenlerini yüklemek için gerekli
+from pathlib import Path
 import google.generativeai as geneai
-# from google.colab import userdata # Render'da çalışmaz, kaldırıldı.
+# import os # Ortam değişkenlerini yüklemek için gerekli
+# import google.generativeai as geneai
+# # from google.colab import userdata # Render'da çalışmaz, kaldırıldı.
+
+# # Configuration and setup
+# # API anahtarını ortam değişkeninden (Render'da ayarlayacağımız) yükle
+# api_key = os.getenv('GOOGLE_API_KEY')
+
+# if api_key is None:
+#     # Render'da anahtar yoksa kullanıcıya hata mesajı gösterir
+#     st.error("GOOGLE_API_KEY bulunamadı. Lütfen Render ortam değişkenlerini kontrol edin.")
+#     st.stop()
+
+# geneai.configure(api_key=api_key)
 
 # Configuration and setup
-# API anahtarını ortam değişkeninden (Render'da ayarlayacağımız) yükle
 api_key = os.getenv('GOOGLE_API_KEY')
-
 if api_key is None:
-    # Render'da anahtar yoksa kullanıcıya hata mesajı gösterir
-    st.error("GOOGLE_API_KEY bulunamadı. Lütfen Render ortam değişkenlerini kontrol edin.")
+    st.error("GOOGLE_API_KEY not found. Add it in Colab secrets.")
     st.stop()
-
 geneai.configure(api_key=api_key)
 
 # Prompt setup
@@ -29,9 +38,8 @@ generation_config = {
 st.set_page_config(page_title="PDF Document Analyzer")
 st.title("Cybersecurity Document Analyzer")
 
-# Dosya yükleyici ve buton, Render'da da sorunsuz çalışacaktır.
-upload_file = st.file_uploader("Upload a PDF document to analyze", type=["pdf"], width=200)
-submit_button = st.button("Analyze Document", width=200)
+upload_file = st.file_uploader("Upload a PDF document to analyze", type=["pdf"],width=200)
+submit_button = st.button("Analyze Document",width=200)
 
 
 # Button Function
